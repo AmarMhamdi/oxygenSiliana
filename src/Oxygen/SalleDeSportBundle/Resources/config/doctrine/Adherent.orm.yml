@@ -1,0 +1,25 @@
+Oxygen\SalleDeSportBundle\Entity\Adherent:
+    type: entity
+    table: adherent
+    repositoryClass: Oxygen\SalleDeSportBundle\Repository\AdherentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            nullable: true
+        lastName:
+            type: string
+            nullable: true
+        age:
+            type: integer
+            nullable: true
+        weight:
+            type: float
+            nullable: true
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,25 @@
+#services:
+#    oxygen_salle_de_sport.example:
+#        class: Oxygen\SalleDeSportBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+    oxygen_salle_de_sport.component.authentication.handler.login_success_handler.class: Oxygen\SalleDeSportBundle\Component\Authentication\Handler\LoginSuccessHandler
+    oxygen_salle_de_sport.component.authentication.handler.logout_success_handler.class: Oxygen\SalleDeSportBundle\Component\Authentication\Handler\LogoutSuccessHandler
+    
+services:
+    oxygen_salle_de_sport.component.authentication.handler.login_success_handler:
+        class:  %oxygen_salle_de_sport.component.authentication.handler.login_success_handler.class%
+        arguments:  [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' } 
+            #@service_container,
+    oxygen_salle_de_sport.component.authentication.handler.logout_success_handler:
+        class:  %oxygen_salle_de_sport.component.authentication.handler.logout_success_handler.class%
+        arguments:  [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+
+    app.form.registration:
+        class: AppBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }

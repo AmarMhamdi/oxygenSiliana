@@ -1,0 +1,11 @@
+Oxygen\SalleDeSportBundle\Entity\Coach:
+    type: entity
+    table: null
+    repositoryClass: Oxygen\SalleDeSportBundle\Entity\CoachRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
